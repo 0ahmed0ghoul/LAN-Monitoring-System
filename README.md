@@ -1,4 +1,4 @@
-# 🌐 LAN Monitoring System
+# 🌐 LAN Monitoring System | SONATRACH Internship Project
 
 A cross-platform **LAN Monitoring Web Application** developed during an internship at **DCRD - SONATRACH**, aiming to **display installed software and system information from all connected devices** on a local network. The system is designed to help IT administrators **supervise digital assets** and optimize equipment management in real-time.
 
