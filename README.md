@@ -34,8 +34,8 @@ This system allows administrators to:
 |  Python Agent    |  ───────────────────────▶   |     Backend    |
 |  (on each device)|                             |  (Node.js API) |
 +------------------+                             +--------┬-------+
-                                                             │
-                                           fetch() requests  ▼
+                                                          │
+                                         fetch() requests ▼
                                                      +-------------+
                                                      |  Frontend   |
                                                      |   (React)   |
