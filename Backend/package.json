@@ -1,0 +1,30 @@
+{
+  "name": "back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "arp-a": "^0.5.2",
+    "body-parser": "^2.2.0",
+    "compression": "^1.8.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "express-rate-limit": "^7.5.0",
+    "fs": "^0.0.1-security",
+    "fs-extra": "^11.3.0",
+    "helmet": "^8.1.0",
+    "local-devices": "^4.0.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.10",
+    "os": "^0.1.2",
+    "uuid": "^11.1.0"
+  }
+}

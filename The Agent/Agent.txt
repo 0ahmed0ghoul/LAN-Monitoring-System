@@ -1,0 +1,91 @@
+===============================STEPS TO CONFIGURE THE AGENT======================================================================
+
+pyinstaller --onefile --hidden-import=psutil --hidden-import=winreg agent.py
+
+
+cd C:\Agent
+
+install: agent.exe install
+
+Start: agent.exe start
+
+Stop: agent.exe stop
+
+Restart: agent.exe restart
+
+Remove: agent.exe remove
+
+==================================== UBUNTU ================================================================================
+
+1. COPYING ubuntu_agent.py in the virtual box (drag and drop)
+
+2. Install Python 3 and venv (just in case)
+sudo apt update
+sudo apt install python3 python3-pip python3-venv -y
+
+3. Create the Virtual Environment
+python3 -m venv venv
+
+4. Activate the Virtual Environment
+source venv/bin/activate
+
+After this, your terminal prompt should change to something like: (venv) yourusername@yourvm:~/yourfolder$
+
+5. Install psutil & requests :
+pip install psutil requests
+
+6. Create the shell wrapper script:
+nano /home/ahmed/Desktop/run_agent.sh
+
+7. Paste this into the file:
+#!/bin/bash
+source /home/ahmed/Desktop/venv/bin/activate
+python /home/ahmed/Desktop/ubuntu_agent.py
+
+8. Make it executable:
+chmod +x /home/ahmed/Desktop/run_agent.sh
+
+9. Test the shell script manually
+/home/ahmed/Desktop/run_agent.sh
+Make sure it runs without errors and your script output appears.
+
+10. Create a systemd service file
+sudo nano /etc/systemd/system/ubuntu_agent.service
+Paste:
+[Unit]
+Description=Ubuntu Agent Service
+After=network.target
+
+[Service]
+ExecStart=/home/ahmed/Desktop/run_agent.sh
+WorkingDirectory=/home/ahmed/Desktop
+StandardOutput=journal
+StandardError=journal
+Restart=always
+User=ahmed
+Group=ahmed
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
+
+Save and exit.
+
+11. Reload systemd and start your service
+sudo systemctl daemon-reload
+sudo systemctl enable ubuntu_agent.service
+sudo systemctl start ubuntu_agent.service
+
+12. Check service status and logs
+Check if the service is active:
+sudo systemctl status ubuntu_agent.service
+Follow live logs (useful for debugging):
+
+journalctl -u ubuntu_agent.service -f
+
+13. (Optional) Stop or disable the service
+Stop:
+sudo systemctl stop ubuntu_agent.service
+Disable (prevent auto start):
+sudo systemctl disable ubuntu_agent.service
+
