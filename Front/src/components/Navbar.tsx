@@ -43,7 +43,8 @@ const Navbar: React.FC = () => {
               onClick={() => navigate("/")} 
               className="text-2xl font-bold text-netview-blue-700 flex items-center cursor-pointer"
             >
-              <span className="text-netview-blue-500 mr-1">GA</span>View
+            <img src="/images/sonatrach.jpg" alt="sonatrach"  style={{width:"48px",height:"48px",borderRadius:"50%", marginRight:"10px"}}/>
+            <span className="mr-1" style={{color:"#F0831E"}}>GA</span>View
             </h1>
             <span className="text-xs bg-netview-blue-200 px-2 py-0.5 rounded-full ml-2 text-netview-blue-700">
               v1.0

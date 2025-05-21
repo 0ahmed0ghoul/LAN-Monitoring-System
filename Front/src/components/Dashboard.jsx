@@ -38,10 +38,10 @@ const Dashboard = () => {
             <DeviceGrid />
             
             {/* Sticky Export Button */}
-            <Button style={{ position: "fixed", bottom: "20px", right: "20px",width: "200px",zIndex: 1000 }}
+            <Button style={{ position: "fixed", bottom: "20px", right: "20px",width: "200px",zIndex: 1000 ,backgroundColor: "#F0831E",color:"black"}}
               onClick={handleExport}
               disabled={isLoading}
-              className="bg-netview-green hover:bg-netview-green-dark text-white shadow-lg rounded-full p-4"
+              className=" hover:bg-netview-green-dark text-white shadow-lg rounded-full p-4"
             >
               {isLoading ? "Exporting..." : "Export to Excel"}
             </Button>
